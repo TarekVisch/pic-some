@@ -7,7 +7,7 @@ function PhotosContextProvider(props) {
 
   useEffect(() => {
     fetch(
-      "https://api.unsplash.com/photos?per_page=30&client_id=gWq17QYOX1lzaC6VQ1myMNnhQXNGW4efHeuYdm5vFWg"
+      "https://api.unsplash.com/photos?per_page=24&client_id=gWq17QYOX1lzaC6VQ1myMNnhQXNGW4efHeuYdm5vFWg"
     )
       .then((response) => response.json())
       .then((data) => {
@@ -25,7 +25,13 @@ function PhotosContextProvider(props) {
   }, []);
 
   function toggleLike(id) {
-    console.log(id);
+    const newImages = images.map((image) => {
+      if (image.id === id) {
+        return { ...image, isLiked: !image.isLiked };
+      }
+      return image;
+    });
+    setImages(newImages);
   }
 
   return (
