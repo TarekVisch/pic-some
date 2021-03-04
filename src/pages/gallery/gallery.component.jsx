@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { PhotosContext } from "../../context/photosContext";
+
+import Photo from "../../components/photo/photo.component";
+
 import "./gallery.styles.scss";
 
 function Gallery() {
+  const { images } = useContext(PhotosContext);
+
   return (
-    <div>
-      <h1>Image Gallery!</h1>
+    <div className="gallery">
+      {images.map((img) => (
+        <Photo key={img.id} img={img} />
+      ))}
     </div>
   );
 }
