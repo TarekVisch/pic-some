@@ -1,11 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+
+import { PhotosContextProvider } from "./context/photosContext";
+
+import "./index.css";
+import App from "./App";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <PhotosContextProvider>
+    <Router>
+      <App />
+    </Router>
+  </PhotosContextProvider>,
+  document.getElementById("root")
 );
