@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-
 import { PhotosContext } from "../../context/photosContext";
 
 import Photo from "../../components/photo/photo.component";
+import imageClassName from "../../utilities/imageClassName";
 
 import "./gallery.styles.scss";
 
@@ -11,8 +11,8 @@ function Gallery() {
 
   return (
     <div className="gallery">
-      {images.map((img) => (
-        <Photo key={img.id} img={img} />
+      {images.map((img, index) => (
+        <Photo key={img.id} img={img} className={imageClassName(index)} />
       ))}
     </div>
   );
