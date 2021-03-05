@@ -9,7 +9,7 @@ function CartItem({ item }) {
   return (
     <div className="cart__item">
       <i
-        class="ri-delete-bin-line cart__delete"
+        className="ri-delete-bin-line cart__delete"
         onClick={() => removeFromCart(item.id)}
       ></i>
       <div className="cart__image">

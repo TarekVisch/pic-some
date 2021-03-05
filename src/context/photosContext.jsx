@@ -43,9 +43,20 @@ function PhotosContextProvider(props) {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   }
 
+  function emptyCart() {
+    setCartItems([]);
+  }
+
   return (
     <PhotosContext.Provider
-      value={{ images, toggleLike, cartItems, addToCart, removeFromCart }}
+      value={{
+        images,
+        toggleLike,
+        cartItems,
+        addToCart,
+        removeFromCart,
+        emptyCart,
+      }}
     >
       {props.children}
     </PhotosContext.Provider>
