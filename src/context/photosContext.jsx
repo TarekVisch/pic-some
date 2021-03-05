@@ -40,11 +40,8 @@ function PhotosContextProvider(props) {
   }
 
   function removeFromCart(id) {
-    console.log("Remove " + id);
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   }
-
-  console.log(cartItems);
 
   return (
     <PhotosContext.Provider
