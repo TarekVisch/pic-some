@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { PhotosContext } from "../../context/photosContext";
 
 import Photo from "../../components/photo/photo.component";
-// import imageClassName from "../../utilities/imageClassName";
 
 import "./gallery.styles.scss";
 

@@ -22,20 +22,21 @@
     height: 100%;
     object-fit: cover;
   }
+}
 
-  &__icons {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    z-index: 100;
+.favorite,
+.cart {
+  font-size: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  z-index: 100;
+}
 
-    .icon {
-      font-size: 20px;
-      cursor: pointer;
-    }
-  }
+.favorite {
+  left: 10px;
+}
+
+.cart {
+  right: 10px;
 }

@@ -4,6 +4,7 @@ const PhotosContext = React.createContext();
 
 function PhotosContextProvider(props) {
   const [images, setImages] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     fetch(
@@ -34,8 +35,21 @@ function PhotosContextProvider(props) {
     setImages(newImages);
   }
 
+  function addToCart(item) {
+    setCartItems((prevItems) => [...prevItems, item]);
+  }
+
+  function removeFromCart(id) {
+    console.log("Remove " + id);
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  }
+
+  console.log(cartItems);
+
   return (
-    <PhotosContext.Provider value={{ images, toggleLike }}>
+    <PhotosContext.Provider
+      value={{ images, toggleLike, cartItems, addToCart, removeFromCart }}
+    >
       {props.children}
     </PhotosContext.Provider>
   );

@@ -5,27 +5,46 @@ import "./photo.styles.scss";
 
 function Photo({ img }) {
   const [hovered, setHovered] = useState(false);
-  const { toggleLike } = useContext(PhotosContext);
+  const { toggleLike, cartItems, addToCart, removeFromCart } = useContext(
+    PhotosContext
+  );
 
   function heartIcon() {
     if (img.isLiked) {
       return (
         <i
-          className="ri-heart-fill icon"
+          className="ri-heart-fill favorite"
           onClick={() => toggleLike(img.id)}
         ></i>
       );
     } else if (hovered) {
       return (
         <i
-          className="ri-heart-line icon"
+          className="ri-heart-line favorite"
           onClick={() => toggleLike(img.id)}
         ></i>
       );
     }
   }
 
-  const cartIcon = hovered && <i className="ri-add-circle-line icon"></i>;
+  function cartIcon() {
+    const inCart = cartItems.some((item) => item.id === img.id);
+    if (inCart) {
+      return (
+        <i
+          className="ri-shopping-cart-fill cart"
+          onClick={() => removeFromCart(img.id)}
+        ></i>
+      );
+    } else if (hovered) {
+      return (
+        <i
+          className="ri-add-circle-line cart"
+          onClick={() => addToCart(img)}
+        ></i>
+      );
+    }
+  }
 
   return (
     <div
@@ -34,10 +53,8 @@ function Photo({ img }) {
       onMouseLeave={() => setHovered(false)}
     >
       <img src={img.url} alt={img.alt} className="image__item" />
-      <div className="image__icons">
-        {heartIcon()}
-        {cartIcon}
-      </div>
+      {heartIcon()}
+      {cartIcon()}
     </div>
   );
 }
