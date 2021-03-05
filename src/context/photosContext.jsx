@@ -8,7 +8,7 @@ function PhotosContextProvider(props) {
 
   useEffect(() => {
     fetch(
-      "https://api.unsplash.com/photos?per_page=24&client_id=gWq17QYOX1lzaC6VQ1myMNnhQXNGW4efHeuYdm5vFWg"
+      "https://api.unsplash.com/photos?per_page=20&client_id=gWq17QYOX1lzaC6VQ1myMNnhQXNGW4efHeuYdm5vFWg"
     )
       .then((response) => response.json())
       .then((data) => {
