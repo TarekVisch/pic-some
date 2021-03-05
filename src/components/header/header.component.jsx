@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { PhotosContext } from "../../context/photosContext";
 
+import "./header.styles.scss";
+
 function Header() {
   const { cartItems } = useContext(PhotosContext);
 

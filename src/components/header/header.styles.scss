@@ -1,0 +1,21 @@
+.header {
+  background-color: #feb062;
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 5px 10px rgba(black, 0.2);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  i {
+    font-weight: lighter;
+  }
+}
